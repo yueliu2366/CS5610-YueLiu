@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<!-- 
+  Visual Studio global web project settings.
+-->
+<VisualWebDeveloper>
+
+  <comReferences>
+    <reference Name="interop.htmdlgslib" ID="{38E6F584-0767-11D3-9AA9-00C04F79EFC3}\1.0\0"/>
+  </comReferences>
+</VisualWebDeveloper>

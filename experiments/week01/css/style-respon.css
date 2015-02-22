@@ -1,0 +1,36 @@
+﻿ .container {
+            width: 600px;
+            margin: auto;
+        }
+
+        body {
+            color: black;
+        }
+
+        @media screen and (max-width:500px) {
+            body {
+                background-color: red;
+            }
+
+            .container {
+                width: 300px;
+                margin: auto;
+            }
+        }
+
+        @media screen and (min-width:500px) and (max-width:700px) {
+            body {
+                background-color: green;
+            }
+        }
+
+@media screen and (min-width:700px) {
+    body {
+        background-color: yellow;
+    }
+
+    .container {
+        width: 600px;
+        margin: auto;
+    }
+}

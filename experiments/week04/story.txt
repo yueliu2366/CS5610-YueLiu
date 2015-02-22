@@ -1,0 +1,8 @@
+﻿../../story/whatisnext.htm?../experiments/week04/story.txt               What is Next?
+000.html	 AngularJs-SimpleString
+001.html	 AngularJs-TrySomeObject
+010.html     AngularJs-Add,Delete,Select
+020.html	AngularJs-Add a Favorite movie
+030.html    AngularJs-Show details
+
+
