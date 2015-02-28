@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Sticky Footer Navbar Template for Bootstrap</title>
+
+    <!-- JQuery JavaScript and CSS -->
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+    <script src="js/003.js"></script>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <!-- google cood prettify-->
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>  
+
+
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#source_code">Source Code</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Week03-Experiment04</h1>
+        </div>
+ 
+        <div class="page_content">
+            <h2>Experiment Description:</h2>
+            <p>I try out adding a paragraph dynamically using JQuery UI. Meanwhile, I save objects to the localstorage and reload
+            these objects after saving. Localstorage is similar to cookie but with larger space, which can be used to store temporary
+            data.</p>
+            <p>Here is the sinppet of JS file:</p>
+            <pre><code>
+$(function () {
+    $(&quot;#addParagraph&quot;).click(function () {
+        addParagraph(&quot;New Paragraph&quot;, 150, 150);
+    })
+    $(&quot;#save&quot;).click(save);
+    $(&quot;#load&quot;).click(load);
+});
+function save() {
+    var allPs = $(&quot;p&quot;);
+    var paragraphs = [];
+    allPs.each(function (index, item) {
+        var p = $(item);
+        var pos = p.position();
+        var text = p.text();
+        var pObj = {
+            text: text,
+            x: pos.left,
+            y: pos.top
+        };
+        paragraphs.push(pObj);
+    });
+    pStr = JSON.stringify(paragraphs);
+    localStorage.setItem(&quot;page123&quot;, pStr);
+    console.log(&quot;has been saved&quot;);
+}
+function load() {
+    var page = localStorage.getItem(&quot;page123&quot;);
+    console.log(&quot;has been loaded&quot;);
+    if (page == null)
+        return;
+    page = JSON.parse(page);
+    console.log(page);
+    for (var p in page) {
+        var par = page[p];
+        var text = par.text;
+        var x = par.x;
+        var y = par.y;
+        addParagraph(text, x, y);
+    }
+}
+function addParagraph(text, x, y) {
+    var p = $(&quot;&lt;p contenteditable=&apos;true&apos;&gt;&quot;);
+    p
+    .html(text)
+    .draggable({ grid: [20, 20] })
+    .resizable()
+    .css({
+        &quot;position&quot;: &quot;relative&quot;,
+        &quot;left&quot;: x,
+        &quot;top&quot;: y
+    });
+    $(&quot;body&quot;).append(p);
+}
+           </code> </pre>
+            <p>Here is the sinppet of Html file:</p>
+            <pre><code>
+            &lt;div class=&quot;page_content&quot;&gt;
+            &lt;h2&gt;Experiment Details:&lt;/h2&gt;
+            &lt;h1&gt;Add Elements On Click&lt;/h1&gt;
+            &lt;button id=&quot;addParagraph&quot;&gt;Add Paragraph&lt;/button&gt;
+            &lt;button id=&quot;save&quot;&gt;Save&lt;/button&gt;
+            &lt;button id=&quot;load&quot;&gt;Load&lt;/button&gt;
+            &lt;/div&gt;
+            </code> </pre>
+
+
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Details:</h2>
+            <h1>Add Elements On Click</h1>
+            <button id="addParagraph">Add Paragraph</button>
+            <button id="save">Save</button>
+            <button id="load">Load</button>
+        </div>
+
+        <div class="page_content">
+            <a name="source_code"></a>
+            <h2>Source Code Links:</h2>
+            <ul>
+                <li>
+                    <a href="../../fileview/Default.aspx?~/experiments/week03/003.html">003.html</a>
+                </li>
+                <li>
+                    <a href="../../fileview/Default.aspx?~/experiments/week03/js/003.js">003.js</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+</body>
+</html>

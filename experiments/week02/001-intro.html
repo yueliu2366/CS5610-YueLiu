@@ -11,6 +11,13 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
+    <!-- google cood prettify-->
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+
     <style>
         body {
             padding: 50px;
@@ -44,6 +51,48 @@
             <p>This is a template showcasing the optional theme stylesheet included in Bootstrap. Use it as a starting point to create something more unique by building on or modifying it.</p>
         </div>
         <h1>Edu Portal</h1>
+    </div>
+
+
+    <div class="page_content">
+        <h2>Experiment Description:</h2>
+        <p>
+            This experiment uses the Bootstrap Framework to implement an Responsive Navigation Bar which fixed at the top of the web page.
+            Also, the Navigation Bar will fit to screen automatically when the size of screen is changed. Therefore, this page is suit for mobile users as well as PC users.
+        </p>
+        <p>Here is the sinppet of html file:</p>
+        <pre><code>
+        &lt;nav class=&quot;navbar navbar-inverse navbar-fixed-top&quot;&gt;
+        &lt;div class=&quot;container&quot;&gt;
+            &lt;div class=&quot;navbar-header&quot;&gt;
+                &lt;button type=&quot;button&quot; class=&quot;navbar-toggle collapsed&quot; data-toggle=&quot;collapse&quot; data-target=&quot;#navbar&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;navbar&quot;&gt;
+                    &lt;span class=&quot;sr-only&quot;&gt;Toggle navigation&lt;/span&gt;
+                    &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                    &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                    &lt;span class=&quot;icon-bar&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;a class=&quot;navbar-brand&quot; href=&quot;#&quot;&gt;Edu Portal&lt;/a&gt;
+            &lt;/div&gt;
+            &lt;div id=&quot;navbar&quot; class=&quot;collapse navbar-collapse&quot;&gt;
+                &lt;ul class=&quot;nav navbar-nav&quot;&gt;
+                    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#about&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#contact&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;&lt;!--/.nav-collapse --&gt;
+        &lt;/div&gt;
+    &lt;/nav&gt;
+            </code></pre>
+    </div>
+
+    <div class="page_content">
+        <a name="source_code"></a>
+        <h2>Source Code Links:</h2>
+        <ul>
+            <li>
+                <a href="../../fileview/Default.aspx?~/experiments/week02/001-intro.html">001-intro.html</a>
+            </li>
+        </ul>
     </div>
 </body>
 </html>

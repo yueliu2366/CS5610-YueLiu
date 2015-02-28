@@ -1,73 +1,217 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Post New Blog Article</title>
-</head>
-<body>
-    <header>
-        <h1>New Blog Post</h1>
-    </header>
-    <main>
-        <form>
-            <div>
-                Genre:
-                <input list="genre2" />
-                <datalist id="genre2">
-                    <option>Rock</option>
-                    <option>Classical</option>
-                    <option>Country</option>
-                </datalist>
-            </div>
-            <div>
-                Genre:
-                <select name="genre">
-                    <option value="ROCK">Rock</option>
-                    <option value="classicle">Classicle</option>
-                    <option value="country">Country</option>
-                </select>
-            </div>
-            <div>
-                Progress:<br />
-                <progress max="100" value="30"></progress>
-            </div>
-            <div>
-                Rate:<br />
-                <input type="number" min="0" max="5" value="5" />
-            </div>
-            <div>
-                Category:<br />
-                <input type="checkbox" name="category" value="comedy" />Comedy
-                <input type="checkbox" name="category" value="horror" />Horror
-            </div>
-            <div>
-                <label for="email">Email</label>
-                <div>
-                    <input id="email" value="me@somewhere" placeholder="someone@somewhere.com" title="Please enter your email" name="email" type="email" />
-                </div>
-            </div>
-            <div>
-                <label for="date">Date Posted</label>
-                <div>
-                    <input id="date" title="Please enter date posted" name="date" type="datetime-local" />
-                </div>
-            </div>
-            <div>
-                <label for="week">Week Posted</label>
-                <div>
-                    <input id="week" title="Please enter week posted" name="week" type="week" />
-                </div>
-            </div>
-            <div>
-                Subscribe:<br />
-                <label><input type="radio" name="subscribe" value="yes" />Yes</label>
-                <label><input type="radio" name="subscribe" value="no" />No</label>
-            </div>
-            <div>
-                <button type="submit">Post</button>
-            </div>
 
-        </form>
-    </main>
-    <footer></footer>
+    <title>Sticky Footer Navbar Template for Bootstrap</title>
+
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <!-- google cood prettify-->
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#source_code">Source Code</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Week01-Experiment02</h1>
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Description:</h2>
+            <p>Try out some basic elements of HTML, such as <code>&lt;form&gt;, &lt;footer&gt;,  &lt;Header&gt;</code>. This page is linked by BlogProtoType page.</p>
+            <p>Here is the sinppet of html file:</p>
+            <pre><code>
+             &lt;header&gt;
+                &lt;h1&gt;New Blog Post&lt;/h1&gt;
+            &lt;/header&gt;
+            &lt;main&gt;
+                &lt;form&gt;
+                    &lt;div&gt;
+                        Genre:
+                        &lt;input list=&quot;genre2&quot; /&gt;
+                        &lt;datalist id=&quot;genre2&quot;&gt;
+                            &lt;option&gt;Rock&lt;/option&gt;
+                            &lt;option&gt;Classical&lt;/option&gt;
+                            &lt;option&gt;Country&lt;/option&gt;
+                        &lt;/datalist&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        Genre:
+                        &lt;select name=&quot;genre&quot;&gt;
+                            &lt;option value=&quot;ROCK&quot;&gt;Rock&lt;/option&gt;
+                            &lt;option value=&quot;classicle&quot;&gt;Classicle&lt;/option&gt;
+                            &lt;option value=&quot;country&quot;&gt;Country&lt;/option&gt;
+                        &lt;/select&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        Progress:&lt;br /&gt;
+                        &lt;progress max=&quot;100&quot; value=&quot;30&quot;&gt;&lt;/progress&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        Rate:&lt;br /&gt;
+                        &lt;input type=&quot;number&quot; min=&quot;0&quot; max=&quot;5&quot; value=&quot;5&quot; /&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        Category:&lt;br /&gt;
+                        &lt;input type=&quot;checkbox&quot; name=&quot;category&quot; value=&quot;comedy&quot; /&gt;Comedy
+                        &lt;input type=&quot;checkbox&quot; name=&quot;category&quot; value=&quot;horror&quot; /&gt;Horror
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+                        &lt;div&gt;
+                            &lt;input id=&quot;email&quot; value=&quot;me@somewhere&quot; placeholder=&quot;someone@somewhere.com&quot; title=&quot;Please enter your email&quot; name=&quot;email&quot; type=&quot;email&quot; /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;label for=&quot;date&quot;&gt;Date Posted&lt;/label&gt;
+                        &lt;div&gt;
+                            &lt;input id=&quot;date&quot; title=&quot;Please enter date posted&quot; name=&quot;date&quot; type=&quot;datetime-local&quot; /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;label for=&quot;week&quot;&gt;Week Posted&lt;/label&gt;
+                        &lt;div&gt;
+                            &lt;input id=&quot;week&quot; title=&quot;Please enter week posted&quot; name=&quot;week&quot; type=&quot;week&quot; /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        Subscribe:&lt;br /&gt;
+                        &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;subscribe&quot; value=&quot;yes&quot; /&gt;Yes&lt;/label&gt;
+                        &lt;label&gt;&lt;input type=&quot;radio&quot; name=&quot;subscribe&quot; value=&quot;no&quot; /&gt;No&lt;/label&gt;
+                    &lt;/div&gt;
+                    &lt;div&gt;
+                        &lt;button type=&quot;submit&quot;&gt;Post&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/form&gt;
+            &lt;/main&gt;
+            &lt;footer&gt;&lt;/footer&gt;
+            </code></pre>
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Details:</h2>
+            <header>
+                <h1>New Blog Post</h1>
+            </header>
+            <main>
+                <form>
+                    <div>
+                        Genre:
+                        <input list="genre2" />
+                        <datalist id="genre2">
+                            <option>Rock</option>
+                            <option>Classical</option>
+                            <option>Country</option>
+                        </datalist>
+                    </div>
+                    <div>
+                        Genre:
+                        <select name="genre">
+                            <option value="ROCK">Rock</option>
+                            <option value="classicle">Classicle</option>
+                            <option value="country">Country</option>
+                        </select>
+                    </div>
+                    <div>
+                        Progress:<br />
+                        <progress max="100" value="30"></progress>
+                    </div>
+                    <div>
+                        Rate:<br />
+                        <input type="number" min="0" max="5" value="5" />
+                    </div>
+                    <div>
+                        Category:<br />
+                        <input type="checkbox" name="category" value="comedy" />Comedy
+                        <input type="checkbox" name="category" value="horror" />Horror
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <div>
+                            <input id="email" value="me@somewhere" placeholder="someone@somewhere.com" title="Please enter your email" name="email" type="email" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="date">Date Posted</label>
+                        <div>
+                            <input id="date" title="Please enter date posted" name="date" type="datetime-local" />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="week">Week Posted</label>
+                        <div>
+                            <input id="week" title="Please enter week posted" name="week" type="week" />
+                        </div>
+                    </div>
+                    <div>
+                        Subscribe:<br />
+                        <label><input type="radio" name="subscribe" value="yes" />Yes</label>
+                        <label><input type="radio" name="subscribe" value="no" />No</label>
+                    </div>
+                    <div>
+                        <button type="submit">Post</button>
+                    </div>
+
+                </form>
+            </main>
+            <footer></footer>
+        </div>
+
+        <div class="page_content">
+            <a name="source_code"></a>
+            <h2>Source Code Links:</h2>
+            <ul>
+                <li>
+                    <a href="../../fileview/Default.aspx?~/experiments/week01/002-blog.html">002-blog.html</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

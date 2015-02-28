@@ -3,6 +3,8 @@
 ../story/index.htm?../experiments/week02/story.txt                           WEEK02: Bootstrap
 ../story/index.htm?../experiments/week03/story.txt                           WEEK03: JavaScript, JQuery
 ../story/index.htm?../experiments/week04/story.txt                           WEEK04: AngularJs
+../story/index.htm?../experiments/week05/story.txt                           WEEK05: AngularJsRouting, SinglePage, Service
+
 
 
 

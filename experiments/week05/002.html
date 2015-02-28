@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Sticky Footer Navbar Template for Bootstrap</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/002.js"></script>
+    <script src="js/002-service.js"></script>
+
+    <!-- google cood prettify-->
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> 
+
+
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+
+</head>
+
+<body ng-app="MovieApp">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home">Home</a></li>
+                    <li><a href="#/profile">Profile</a></li>
+                    <li><a href="#/details">Details</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Week05-Experiment03</h1>
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Description:</h2>
+            <p>This experiment is based on the the experiment02. I build a service which exposes functions to be called by 
+            controllers. By using service, I am able to passing values between home page and profile page.</p>
+            <p>Here is the sinppet of service.js file:</p>
+            <pre><code>
+    app.factory(&apos;MovieService&apos;, function MovieService($http) {
+    var favoriteMovies = [];
+    var searchMovies = function (title, callback) {
+        $http.jsonp(&quot;http://www.myapifilms.com/imdb?title=&quot; + title + &quot;&amp;format=JSONP&amp;aka=0&amp;business=0&amp;seasons=0&amp;seasonYear=0&amp;technical=0&amp;filter=N&amp;exactFilter=0&amp;limit=10&amp;lang=en-us&amp;actors=N&amp;biography=0&amp;trailer=0&amp;uniqueName=0&amp;filmography=0&amp;bornDied=0&amp;starSign=0&amp;actorActress=0&amp;actorTrivia=0&amp;movieTrivia=0&amp;awards=0&amp;moviePhotos=N&amp;movieVideos=N&amp;callback=JSON_CALLBACK&quot;)
+        .success(callback);
+    }
+    var addToFavorites = function (movie) {
+        favoriteMovies.push(movie);
+    }
+    var getFavorites = function () {
+        return favoriteMovies;
+    }
+    return {
+        search: searchMovies,
+        addToFavorites: addToFavorites,
+        getFavorites: getFavorites
+    }
+});
+            </code></pre>
+            <p>Be sure to expose functions' name in <code>return{}</code>.so that they can be invoke by controllers.</p>
+            <p>The following is the sinppet of profile.html file:</p>
+            <pre><code>
+ &lt;h1&gt;Profile&lt;/h1&gt;
+&lt;h2&gt;My Favorite Movies&lt;/h2&gt;
+&lt;table class=&quot;table table-striped&quot;&gt;
+    &lt;tbody&gt;
+        &lt;tr ng-repeat=&quot;movie in favoriteMovies&quot;&gt;
+            &lt;td&gt;{{movie.title}}&lt;/td&gt;
+            &lt;td&gt;{{movie.year}}&lt;/td&gt;
+            &lt;td&gt;{{movie.rating}}&lt;/td&gt;
+            &lt;td&gt;
+                &lt;img class=&quot;poster&quot; ng-src=&quot;{{movie.urlPoster}}&quot; width=&quot;50&quot; /&gt;
+                {{movie.plot}}
+            &lt;/td&gt;
+            &lt;td&gt;
+                &lt;button ng-click=&quot;removeFavoriteMovie(movie)&quot; class=&quot;btn btn-danger&quot;&gt;
+                    &lt;span class=&quot;glyphicon glyphicon-remove&quot;&gt;&lt;/span&gt;
+                &lt;/button&gt;
+                &lt;a href=&quot;#/details/{{movie.idIMDB}}&quot; class=&quot;btn btn-primary&quot;&gt;
+                    &lt;span class=&quot;glyphicon glyphicon-eye-open&quot;&gt;&lt;/span&gt;
+                &lt;/a&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;            
+             </code></pre>
+            <p>Everything is trivial as what we did last week.</p>
+
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Details:</h2>
+            <div ng-view>
+            </div>
+
+       </div>
+
+        <div class="page_content">
+            <a name="source_code"></a>
+            <h2>Source Code Links:</h2>
+            <ul>
+                <li>
+                    <a href="../../fileview/Default.aspx?~/experiments/week05/002.html">002.html</a>
+                </li>
+                <li>
+                    <a href="../../fileview/Default.aspx?~/experiments/week05/js/002.js">002.js</a>
+                </li>
+                <li>
+                    <a href="../../fileview/Default.aspx?~/experiments/week05/js/002-service.js">002-service.js</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>

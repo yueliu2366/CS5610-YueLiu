@@ -29,12 +29,13 @@ function ($scope, $http) {
             plot: movie.plot
         };
         
-        $scope.movie = newMovie;
+      //  $scope.movie = newMovie;
 
-      //  $scope.movie = movie;
+        $scope.movie = movie;
     }
     $scope.updateMovie = function () {
-          alert($scope.movie.title);
+        alert($scope.movie.title);
+        
        // $scope.movie = movie
     }
 });
