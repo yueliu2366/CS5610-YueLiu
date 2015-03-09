@@ -4,6 +4,7 @@
 ../story/index.htm?../experiments/week03/story.txt                           WEEK03: JavaScript, JQuery
 ../story/index.htm?../experiments/week04/story.txt                           WEEK04: AngularJs
 ../story/index.htm?../experiments/week05/story.txt                           WEEK05: AngularJsRouting, SinglePage, Service
+../story/index.htm?../experiments/week06/story.txt                           WEEK06: Explore Nodejs && Deploy on OpenShift
 
 
 

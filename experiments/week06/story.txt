@@ -1,0 +1,10 @@
+﻿../../story/whatisnext.htm?../experiments/week06/story.txt               What is Next?
+000.html	  Nodejs Static Pages
+001.html	  Nodejs passing objects
+002.html      Deploy nodejs app on Openshift
+
+
+
+
+
+
