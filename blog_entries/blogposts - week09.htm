@@ -1,0 +1,42 @@
+﻿<h3>Week09 Experiment </h3>
+<div>
+    <h5>Experiment1-Passport Access Control - Login</h5>
+<p>
+    In this experiment, I try out a simple passport authentication. If you type any username and password other than alice(username) and alice(passward), you can't login successful. Once you are login, the page will be directed to profile.html
+    Notice that in var UserSchema = new mongoose.Schema({ username: String, password: String, firstName: String, lastName: String, email: String, roles: [String] },{ collection: 'user' }); part, {collection: 'user' } will specify the name of collection that we are connected to. 
+
+</p>    
+</div>
+
+<div>
+    <h5>Experiment2-Passport Access Control - Server API Protection</h5>
+<p>
+    In this experiment, you can only fetch data from server side after authentication
+
+    Step1: login using alice and alice as username and password, respectively
+
+    Step2: click fetch data to fetch data from server
+
+    Notice that the server will return the data that you request only after you login, otherwise it will return Unauthorized
+</p> 
+</div> 
+
+<div>
+    <h5>Experiment3-Passport Access Control - Registration</h5>
+    <p>
+        In this experiment,I implement a registration prototype. If the username has been registered, the server will return null. Otherwise, a new user wil be registered and the information of this user will be stored in MongoDB.     </p>
+
+</div>
+
+<div>
+    <h5>Experiment4-Passport Access Control - Profile Protection Access Control</h5>
+    <p>
+        This is experiment is similar to the experiment01. A unauthentice user will not be able to view the profile page. A user can only view the profile page after loging in. In this experiment, the access control is implemented at the client side by using resolve key word and call the checkLoggedin function.     </p>
+</div>
+
+<div>
+    <h5>Experimen5-Passport Access Control - Ng-show && Logout and Combination</h5>
+    <p>
+        In this experiment, I try out logout functionality. I also combine ng-show with the navigation bar. If you haven't loggedin, the navigation bar shows only logout and profile. However, if you haven't logged in, you can see login and register on the top.     </p>
+</div>
+

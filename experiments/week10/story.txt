@@ -1,0 +1,14 @@
+﻿../../story/whatisnext.htm?../experiments/week10/story.txt               What is Next?
+001.html	   HomePage information List
+002.html	   Service between pages
+003.html	   Ng-show && Service && Dynamically control web content
+004.html	   Profile Page
+005.html	   Profile Page Pop Up View
+
+ 
+
+
+
+
+
+

@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Week9</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/003.js"></script>
+    <script src="views/login/login.js"></script>
+    <script src="views/register/register.js"></script>
+
+    <!-- google cood prettify-->
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> 
+
+
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+
+</head>
+
+<body ng-app="MovieApp">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home">Home</a></li>
+                    <li><a href="#/login">Login</a></li>
+                    <li><a href="#/profile">Profile</a></li>
+                    <li><a href="#/register">Register</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Week09-Experiment03</h1>
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Description:</h2>
+            <p>In this experiment,I implement a registration prototype. If the username has been registered, the server
+            will return <code>null</code>. Otherwise, a new user wil be registered and the information of this user will be 
+            stored in MongoDB.
+            </p>
+            <p>Here is the sinppet of server.js :</p>
+            <pre><code>
+    app.post(&apos;/register&apos;, function (req, res) {
+    var newUser = req.body;
+    newUser.roles = [&apos;student&apos;];
+    UserModel.findOne({ username: newUser.username }, function (err, user) {
+        if (err) { return next(err); }
+        if (user) {
+            res.json(null);
+            return;
+        }
+        var newUser = new UserModel(req.body);
+        newUser.save(function (err, user) {
+            req.login(user, function (err) {
+                if (err) { return next(err); }
+                res.json(user);
+            });
+        });
+    });
+});
+        </code></pre>
+
+            <p>Here is the sinppet of register.js :</p>
+            <pre><code>
+ app.controller(&quot;RegisterCtrl&quot;, function ($scope, $http, $location, $rootScope) {
+    $scope.register = function (user) {
+        console.log(user);
+        if (user.password != user.password2 || !user.password || !user.password2) {
+            $rootScope.message = &quot;Your passwords don&apos;t match&quot;;
+        }
+        else {
+            $http.post(&quot;/register&quot;, user)
+            .success(function (response) {
+                console.log(response);
+                if (response != null) {
+                    $rootScope.currentUser = response;
+                    $location.url(&quot;/profile&quot;);
+                }
+            });
+        }
+    }
+});  
+        </code></pre>
+           
+
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Details:</h2>
+            <div ng-view>
+            </div>
+
+       </div>
+
+        <div class="page_content">
+            <a name="source_code"></a>
+            <h2>Source Code Links:</h2>
+            <ul>
+                <li>
+                    <a href="http://net4.ccs.neu.edu/home/liuyue/fileview/Default.aspx?~/experiments/week09/003.html">003.html</a>
+                </li>
+
+                <li>
+                    <a href="http://net4.ccs.neu.edu/home/liuyue/fileview/Default.aspx?~/experiments/week09/003.js">003.js</a>
+                </li>
+
+                <li>
+                    <a href="http://net4.ccs.neu.edu/home/liuyue/fileview/Default.aspx?~/experiments/week09/server.js">server.js</a>
+                </li>
+            </ul>
+        </div>
+
+       
+
+    </div>
+
+
+
+
+</body>
+</html>

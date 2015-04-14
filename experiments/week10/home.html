@@ -1,0 +1,81 @@
+﻿<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to Vecna!</h1>
+    <p>Single-page application design for editing profiles of patients by Yue Liu@Northeastern University </p>
+    <p><a class="btn btn-primary btn-lg" href="#/" role="button">Learn more &raquo;</a></p>
+  </div>
+</div>
+
+<div class="page_content">
+            <div ng-controller="HomeCtrl" class="container">
+                <h2>List of patients:</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>LastName</th>
+                            <th>FirstName</th>
+                            <th>Date of Birth</th>
+                            <th>Primary Phone</th>
+                            <th>Social Security Number</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        
+                    </thead>
+                    <tbody ng-repeat="patient in patients">
+
+                        <tr>
+                            <td>{{patient.name.lastName}}</td>
+                            <td>{{patient.name.firstName}}</td>
+                            <td>{{patient.birthDate}}</td>
+                            <td>{{patient.primaryPhone}}</td>
+                            <td>***-**-{{patient.ssn}}</td>
+                            
+                            <td>
+                                <button  ng-click="showMore(patient)" class="btn btn-info">
+                                    <span id="btnMore"  data-content="View More" class="glyphicon glyphicon-eye-open"></span>
+                                </button>
+                            </td>
+                            <td>
+                                <button id="btnProfile"  data-content="View Profile" ng-click="viewProfile(patient)" class="btn btn-warning">
+                                    <span class="glyphicon glyphicon-pencil"></span>
+                                </button>
+                            </td>
+                       
+                            
+                        </tr>
+                     
+                       <tr ng-show="patient.showButton">
+                            <th>Street</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Zip</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                            <th>&nbsp;</th>
+                        </tr>
+                        <tr ng-show="patient.showButton" >
+                        <td>{{patient.address.street}}</td>
+                        <td>{{patient.address.city}}</td>
+                        <td>{{patient.address.state}}</td>
+                        <td>{{patient.address.zip}}</td>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <th>&nbsp;</th>
+                        <br/>
+                        <br/>
+                        <br/>
+                        </tr>                        
+                    </tbody>
+                </table>
+                
+            
+            </div>
+        </div>
+
+  <hr>
+
+
+</div> <!-- /container -->
+

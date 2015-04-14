@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
 
-    <title>Sticky Footer Navbar Template for Bootstrap</title>
+    <title>Week08 Experiments</title>
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+ 
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -18,8 +20,9 @@
     <!-- google cood prettify-->
     <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
     <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
+    <script>hljs.initHighlightingOnLoad();</script>  
 
+    <script src="js/005.js"></script>
 
     <style>
         body {
@@ -44,25 +47,50 @@
     <!-- Begin page content -->
     <div class="container">
         <div class="page-header">
-            <h1>Week06-Experiment03</h1>
+            <h1>Week08-Experiment05</h1>
         </div>
-
+ 
         <div class="page_content">
             <h2>Experiment Description:</h2>
-            <p>In this experiment, I try to deploy my first nodejs app on Openshift</p>
-            <p>Here is the link: <a> <code>http://nodejs-yueliu2366.rhcloud.com/</code></a></p>
-           
+            <p>
+                In this experiment, I try out jQuery animate() - Manipulate Multiple Properties.
+                By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!
+            </p>
+            <p>Here is the sinppet of JS file:</p>
+            <pre ><code>
+ $(document).ready(function () {
+    $(&quot;button&quot;).click(function () {
+        $(&quot;div&quot;).animate({
+            left: &apos;250px&apos;,
+            opacity: &apos;0.5&apos;,
+            height: &apos;150px&apos;,
+            width: &apos;150px&apos;
+        });
+    });
+});
+           </code> </pre>
+
+
+       
         </div>
 
         <div class="page_content">
             <h2>Experiment Details:</h2>
+            <button>Start Animation</button>
+            <div class="myanimation" style="background:#98bf21;height:100px;width:100px;position:relative;"></div>
         </div>
 
         <div class="page_content">
             <a name="source_code"></a>
             <h2>Source Code Links:</h2>
             <ul>
-              
+                <li>
+                    <a href="../../fileview/Default.aspx?~/experiments/week08/005.html">005.html</a>
+                </li>
+                <li>
+                    <a href="../../fileview/Default.aspx?~/experiments/week08/js/005.js">005.js</a>
+                </li>
+               
             </ul>
         </div>
 

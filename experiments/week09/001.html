@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Week9</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap-theme.css" rel="stylesheet" />
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/001.js"></script>
+    <script src="views/login/login.js"></script>
+
+    <!-- google cood prettify-->
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> 
+
+
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+
+</head>
+
+<body ng-app="MovieApp">
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#/home">Home</a></li>
+                    <li><a href="#/login">Login</a></li>
+                    <li><a href="#/profile">Profile</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Week09-Experiment01</h1>
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Description:</h2>
+            <p>In this experiment, I try out a simple passport authentication. If you type any username and password 
+            other than alice(username) and alice(passward), you can't login successful. Once you are login, the page will
+            be directed to profile.html</p>
+            <p>Here is the sinppet of server.js :</p>
+            <pre><code>
+var express = require(&apos;express&apos;);
+var app = express();
+var bodyParser = require(&apos;body-parser&apos;);
+var multer = require(&apos;multer&apos;);
+var passport = require(&apos;passport&apos;);
+var LocalStrategy = require(&apos;passport-local&apos;).Strategy;
+var cookieParser = require(&apos;cookie-parser&apos;);
+var session = require(&apos;express-session&apos;);
+var mongoose = require(&apos;mongoose&apos;);
+var connectionString = process.env.OPENSHIFT_MONGODB_DB_URL || &apos;mongodb://localhost/first&apos;
+mongoose.connect(connectionString);
+var UserSchema = new mongoose.Schema({
+    username: String,
+    password: String,
+    firstName: String,
+    lastName: String,
+    email: String,
+    roles: [String]
+},{ collection: &apos;user&apos; });
+var UserModel = mongoose.model(&apos;UserModel&apos;, UserSchema);
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(multer()); // for parsing multipart/form-data
+app.use(session({ secret: &apos;this is the secret&apos; }));
+app.use(cookieParser())
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(__dirname + &apos;/week9&apos;));
+var ip = process.env.OPENSHIFT_NODEJS_IP || &apos;127.0.0.1&apos;;
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
+app.listen(port, ip);
+passport.use(new LocalStrategy(
+function (username, password, done) {
+    UserModel.findOne({ username: username, password: password }, function (err, user) {
+        if (err) { return done(err); }
+        if (!user) { return done(null, false); }
+        return done(null, user);
+    })
+}));
+passport.serializeUser(function (user, done) {
+    done(null, user);
+});
+passport.deserializeUser(function (user, done) {
+    done(null, user);
+});
+app.post(&quot;/login&quot;, passport.authenticate(&apos;local&apos;), function (req, res) {
+    var user = req.user;
+    console.log(user);
+    res.json(user);
+});
+        </code></pre>
+            <p>
+                Notice that in<code>
+                    var UserSchema = new mongoose.Schema({
+                    username: String,
+                    password: String,
+                    firstName: String,
+                    lastName: String,
+                    email: String,
+                    roles: [String]
+                    },{ collection: 'user' });
+                </code> part, <code>{collection: 'user' }</code> will specify the name of collection that we are connected to.
+            </p>
+
+            <p>Here is the sinppet of 001.js :</p>
+            <pre><code>
+var app = angular.module(&quot;MovieApp&quot;, [&apos;ngRoute&apos;]);
+app.config([&apos;$routeProvider&apos;,
+function ($routeProvider) {
+    $routeProvider.
+    when(&apos;/home&apos;, {
+        templateUrl: &apos;/views/home/home.html&apos;
+    }).
+    when(&apos;/login&apos;, {
+        templateUrl: &apos;/views/login/login.html&apos;,
+        controller: &apos;LoginCtrl&apos;
+    }).
+    when(&apos;/profile&apos;, {
+        templateUrl: &apos;/views/profile/profile.html&apos;,
+    }).
+    otherwise({
+        redirectTo: &apos;/home&apos;
+    });
+}]);
+        </code></pre>
+          
+            
+
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Details:</h2>
+            <div ng-view>
+            </div>
+
+       </div>
+
+        <div class="page_content">
+            <a name="source_code"></a>
+            <h2>Source Code Links:</h2>
+            <ul>
+                <li>
+                    <a href="http://net4.ccs.neu.edu/home/liuyue/fileview/Default.aspx?~/experiments/week09/001.html">001.html</a>
+                </li>
+
+                <li>
+                    <a href="http://net4.ccs.neu.edu/home/liuyue/fileview/Default.aspx?~/experiments/week09/001.js">001.js</a>
+                </li>
+
+                <li>
+                    <a href="http://net4.ccs.neu.edu/home/liuyue/fileview/Default.aspx?~/experiments/week09/server.js">server.js</a>
+                </li>
+            </ul>
+        </div>
+
+       
+
+    </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,151 @@
+﻿
+<div class="container" id="myDetail">
+   <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{currentPatient.name.lastName}} {{currentPatient.name.firstName}}</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
+                
+        
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                       <tr>
+                        <td>Lastname:</td>
+                        <td>{{currentPatient.name.lastName}}</td>
+                      </tr>
+                      <tr>
+                        <td>Firstname:</td>
+                        <td>{{currentPatient.name.firstName}}</td>
+                      </tr>
+                      <tr>
+                        <td>Date of Birth:</td>
+                        <td>{{currentPatient.birthDate}}</td>
+                      </tr>
+                      <tr>
+                        <td>SSN:</td>
+                        <td>***-**-{{currentPatient.ssn}}</td>
+                      </tr>
+                      <tr>
+                        <td>Primary Phone:</td>
+                        <td>{{currentPatient.primaryPhone}}</td>
+                      </tr>
+                      <tr>
+                        <td>Work Phone:</td>
+                        <td>{{currentPatient.workPhone}}</td>
+                      </tr>
+                      <tr>
+                        <td>Street:</td>
+                        <td>{{currentPatient.address.street}}</td>
+                      </tr>
+                      <tr>
+                        <td>City:</td>
+                        <td>{{currentPatient.address.city}}</td>
+                      </tr>
+                      <tr>
+                        <td>State:</td>
+                        <td>{{currentPatient.address.state}}</td>
+                      </tr>
+                      <tr>
+                        <td>Zip:</td>
+                        <td>{{currentPatient.address.zip}}</td>
+                      </tr>
+                        
+                      
+                           
+                     
+                    </tbody>
+                  </table>
+                 
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                        <a id="btnMail"  data-content="Send Email" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
+                            <a id="btnEdit" data-content="Edit" href="#aboutModal" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-sm btn-warning" ><i class="glyphicon glyphicon-edit"></i></a>
+                            <a id="btnHome" data-content="Go to Home Page" ng-click="toHomePage(currentPatient)" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-ok-circle"></i></a>
+                        </span>
+                 </div>
+            
+          </div>
+        </div>
+      </div>
+      
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">Editing {{currentPatient.name.lastName}} {{currentPatient.name.firstName}}'s profile</h4>
+                </div>
+                <div class="modal-body">
+                    <center>
+                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <h3 class="media-heading">{{currentPatient.name.lastName}} {{currentPatient.name.firstName}} <small>USA</small></h3>
+                    </center>
+                    <hr>
+                    <center>
+                    <p class="text-left"><strong>Profile: </strong>
+                    
+                    
+                  <table class="table table-user-information">
+                    <tbody>
+                       <tr>
+                        <td>Lastname:</td>
+                        <td><input ng-model="currentPatient.name.lastName" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>Firstname:</td>
+                        <td><input ng-model="currentPatient.name.firstName" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>Date of Birth:</td>
+                        <td><input ng-model="currentPatient.birthDate" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>SSN:</td>
+                        <td><input ng-model="currentPatient.ssn" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>Primary Phone:</td>
+                        <td><input ng-model="currentPatient.primaryPhone" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>Work Phone:</td>
+                        <td><input ng-model="currentPatient.workPhone" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>Street:</td>
+                        <td><input ng-model="currentPatient.address.street" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>City:</td>
+                        <td><input ng-model="currentPatient.address.city" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>State:</td>
+                        <td><input ng-model="currentPatient.address.state" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>Zip:</td>
+                        <td><input ng-model="currentPatient.address.zip" class="form-control" /></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+  
+                    </center>
+                <div class="modal-footer">
+                    <center>
+                    <button id="btnSave" data-content="Save profile" ng-click="saveProfile(currentPatient)" type="button" class="btn btn-primary" data-dismiss="modal">Save and return</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

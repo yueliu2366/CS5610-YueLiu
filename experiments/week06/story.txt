@@ -1,8 +1,9 @@
 ﻿../../story/whatisnext.htm?../experiments/week06/story.txt               What is Next?
-000.html	  Nodejs Static Pages
-001.html	  Nodejs passing objects
-002.html      Deploy nodejs app on Openshift
-
+http://nodejs-yueliu2366.rhcloud.com	  OpenShift Static Pages
+http://nodejs-yueliu2366.rhcloud.com/001.html	 OpenShift ng-route 
+http://nodejs-yueliu2366.rhcloud.com/010.html      OpenShift http-get
+http://nodejs-yueliu2366.rhcloud.com/011.html      OpenShift http-delete
+http://nodejs-yueliu2366.rhcloud.com/012.html      OpenShift http-post
 
 
 

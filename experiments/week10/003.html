@@ -1,0 +1,482 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Sticky Footer Navbar Template for Bootstrap</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-resource.min.js"></script>
+    
+
+    <!-- google cood prettify-->
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>  
+
+
+    <style>
+        body {
+            padding: 50px;
+        }
+        span.tags 
+{
+    background: #1abc9c;
+    border-radius: 2px;
+    color: #f5f5f5;
+    font-weight: bold;
+    padding: 2px 4px;
+    }
+    </style>
+
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#source_code">Source Code</a></li>
+                </ul>
+            </div><!--/.nav-collapse -->
+        </div>
+    </nav>
+
+    <!-- Begin page content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Week10-Experiment03</h1>
+        </div>
+ 
+        <div class="page_content">
+            <h2>Experiment Description:</h2>
+            <p>
+                Based on the service, I add an "showMore" button which will drop down more biography information of the user.
+                By setting up ng-show property, I am able to control whether or not the web content will be shown.
+            </p>
+            <p>Here is the sinppet of service.js file:</p>
+            <pre><code>
+ app.factory(&apos;VecnaService&apos;, function VecnaService($http, $location) {
+	 
+	 var patients = [
+	                  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Emily&quot;,
+	                	      &quot;lastName&quot;: &quot;Fields&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;2683&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;987 Ciahu Ct&quot;,
+	                	      &quot;city&quot;: &quot;Nocefab&quot;,
+	                	      &quot;state&quot;: &quot;Missouri&quot;,
+	                	      &quot;zip&quot;: &quot;86508&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(978) 758-2932&quot;,
+	                	    &quot;workPhone&quot;: &quot;(200) 321-6668&quot;,
+	                	    &quot;birthDate&quot;: &quot;6/24/1974&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Eugenia&quot;,
+	                	      &quot;lastName&quot;: &quot;Stokes&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;3027&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;850 Zunmos Vw&quot;,
+	                	      &quot;city&quot;: &quot;Ipasta&quot;,
+	                	      &quot;state&quot;: &quot;Oklahoma&quot;,
+	                	      &quot;zip&quot;: &quot;86439&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(938) 825-3495&quot;,
+	                	    &quot;workPhone&quot;: &quot;(440) 894-3508&quot;,
+	                	    &quot;birthDate&quot;: &quot;8/18/1957&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Lois&quot;,
+	                	      &quot;lastName&quot;: &quot;Fox&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;7135&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;935 Miecu Park&quot;,
+	                	      &quot;city&quot;: &quot;Pibugeh&quot;,
+	                	      &quot;state&quot;: &quot;New York&quot;,
+	                	      &quot;zip&quot;: &quot;58646&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(479) 510-7233&quot;,
+	                	    &quot;workPhone&quot;: &quot;(442) 444-5861&quot;,
+	                	    &quot;birthDate&quot;: &quot;3/3/1988&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Bruce&quot;,
+	                	      &quot;lastName&quot;: &quot;Ray&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;9275&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;650 Wouj Blvd&quot;,
+	                	      &quot;city&quot;: &quot;Likpela&quot;,
+	                	      &quot;state&quot;: &quot;Pennsylvania&quot;,
+	                	      &quot;zip&quot;: &quot;03047&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(947) 339-3004&quot;,
+	                	    &quot;workPhone&quot;: &quot;(928) 915-4910&quot;,
+	                	    &quot;birthDate&quot;: &quot;4/28/1968&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Blanche&quot;,
+	                	      &quot;lastName&quot;: &quot;Rowe&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;2874&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;596 Ladde Pt&quot;,
+	                	      &quot;city&quot;: &quot;Kothotvuz&quot;,
+	                	      &quot;state&quot;: &quot;Vermont&quot;,
+	                	      &quot;zip&quot;: &quot;75038&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(677) 459-4103&quot;,
+	                	    &quot;workPhone&quot;: &quot;(214) 458-9586&quot;,
+	                	    &quot;birthDate&quot;: &quot;8/3/1953&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Lina&quot;,
+	                	      &quot;lastName&quot;: &quot;Farmer&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;4358&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;775 Ulzug Ave&quot;,
+	                	      &quot;city&quot;: &quot;Vipjucos&quot;,
+	                	      &quot;state&quot;: &quot;Nebraska&quot;,
+	                	      &quot;zip&quot;: &quot;27351&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(952) 939-7336&quot;,
+	                	    &quot;workPhone&quot;: &quot;(906) 772-6711&quot;,
+	                	    &quot;birthDate&quot;: &quot;6/16/1985&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Gordon&quot;,
+	                	      &quot;lastName&quot;: &quot;Zimmerman&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;1058&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;244 Urozuw Pkwy&quot;,
+	                	      &quot;city&quot;: &quot;Oftikike&quot;,
+	                	      &quot;state&quot;: &quot;Alabama&quot;,
+	                	      &quot;zip&quot;: &quot;41569&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(968) 754-6874&quot;,
+	                	    &quot;workPhone&quot;: &quot;(414) 563-8521&quot;,
+	                	    &quot;birthDate&quot;: &quot;5/16/1983&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Herbert&quot;,
+	                	      &quot;lastName&quot;: &quot;Fleming&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;5944&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;316 Tohoc Mill&quot;,
+	                	      &quot;city&quot;: &quot;Uswiki&quot;,
+	                	      &quot;state&quot;: &quot;Kansas&quot;,
+	                	      &quot;zip&quot;: &quot;97506&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(204) 275-5441&quot;,
+	                	    &quot;workPhone&quot;: &quot;(329) 375-4443&quot;,
+	                	    &quot;birthDate&quot;: &quot;2/12/1994&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Edith&quot;,
+	                	      &quot;lastName&quot;: &quot;McDaniel&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;5143&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;714 Tispe Ln&quot;,
+	                	      &quot;city&quot;: &quot;Eforeezo&quot;,
+	                	      &quot;state&quot;: &quot;Tennessee&quot;,
+	                	      &quot;zip&quot;: &quot;83722&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(341) 358-2147&quot;,
+	                	    &quot;workPhone&quot;: &quot;(410) 821-8472&quot;,
+	                	    &quot;birthDate&quot;: &quot;2/21/1976&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Augusta&quot;,
+	                	      &quot;lastName&quot;: &quot;Joseph&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;7195&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;287 Pagif Ave&quot;,
+	                	      &quot;city&quot;: &quot;Berfedu&quot;,
+	                	      &quot;state&quot;: &quot;District of Columbia&quot;,
+	                	      &quot;zip&quot;: &quot;34648&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(868) 575-4356&quot;,
+	                	    &quot;workPhone&quot;: &quot;(906) 632-3099&quot;,
+	                	    &quot;birthDate&quot;: &quot;3/12/1962&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Sally&quot;,
+	                	      &quot;lastName&quot;: &quot;Todd&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;1994&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;631 Vezi St&quot;,
+	                	      &quot;city&quot;: &quot;Ruhjijmam&quot;,
+	                	      &quot;state&quot;: &quot;Ohio&quot;,
+	                	      &quot;zip&quot;: &quot;18906&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(979) 852-8700&quot;,
+	                	    &quot;workPhone&quot;: &quot;(374) 959-5900&quot;,
+	                	    &quot;birthDate&quot;: &quot;6/29/1976&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Caroline&quot;,
+	                	      &quot;lastName&quot;: &quot;Reeves&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;2735&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;929 Pohra Ext&quot;,
+	                	      &quot;city&quot;: &quot;Bihunza&quot;,
+	                	      &quot;state&quot;: &quot;Michigan&quot;,
+	                	      &quot;zip&quot;: &quot;62004&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(624) 402-7104&quot;,
+	                	    &quot;workPhone&quot;: &quot;(476) 970-9793&quot;,
+	                	    &quot;birthDate&quot;: &quot;3/1/1985&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Jesse&quot;,
+	                	      &quot;lastName&quot;: &quot;Obrien&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;7832&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;331 Ezaego Hwy&quot;,
+	                	      &quot;city&quot;: &quot;Codecho&quot;,
+	                	      &quot;state&quot;: &quot;South Dakota&quot;,
+	                	      &quot;zip&quot;: &quot;58570&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(240) 245-3428&quot;,
+	                	    &quot;workPhone&quot;: &quot;(759) 702-4890&quot;,
+	                	    &quot;birthDate&quot;: &quot;12/15/1979&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Sadie&quot;,
+	                	      &quot;lastName&quot;: &quot;Rhodes&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;8399&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;533 Japlub Hwy&quot;,
+	                	      &quot;city&quot;: &quot;Potalur&quot;,
+	                	      &quot;state&quot;: &quot;Delaware&quot;,
+	                	      &quot;zip&quot;: &quot;28126&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(645) 204-4796&quot;,
+	                	    &quot;workPhone&quot;: &quot;(820) 219-2522&quot;,
+	                	    &quot;birthDate&quot;: &quot;9/7/1971&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Christian&quot;,
+	                	      &quot;lastName&quot;: &quot;Coleman&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;3828&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;336 Figun Hwy&quot;,
+	                	      &quot;city&quot;: &quot;Budipiane&quot;,
+	                	      &quot;state&quot;: &quot;Texas&quot;,
+	                	      &quot;zip&quot;: &quot;10664&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(526) 610-8908&quot;,
+	                	    &quot;workPhone&quot;: &quot;(379) 481-3320&quot;,
+	                	    &quot;birthDate&quot;: &quot;11/16/1961&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Lottie&quot;,
+	                	      &quot;lastName&quot;: &quot;Watts&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;3898&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;951 Gocof Path&quot;,
+	                	      &quot;city&quot;: &quot;Tagzatu&quot;,
+	                	      &quot;state&quot;: &quot;Ohio&quot;,
+	                	      &quot;zip&quot;: &quot;70850&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(778) 368-1896&quot;,
+	                	    &quot;workPhone&quot;: &quot;(582) 979-2128&quot;,
+	                	    &quot;birthDate&quot;: &quot;7/12/1957&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Louis&quot;,
+	                	      &quot;lastName&quot;: &quot;Richardson&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;6167&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;159 Robrij Blvd&quot;,
+	                	      &quot;city&quot;: &quot;Biduggal&quot;,
+	                	      &quot;state&quot;: &quot;Wisconsin&quot;,
+	                	      &quot;zip&quot;: &quot;16989&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(417) 371-4591&quot;,
+	                	    &quot;workPhone&quot;: &quot;(563) 684-1909&quot;,
+	                	    &quot;birthDate&quot;: &quot;4/13/1975&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Frederick&quot;,
+	                	      &quot;lastName&quot;: &quot;Goodwin&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;0174&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;70 Dojim Pass&quot;,
+	                	      &quot;city&quot;: &quot;Mipezuvi&quot;,
+	                	      &quot;state&quot;: &quot;Missouri&quot;,
+	                	      &quot;zip&quot;: &quot;62281&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(351) 922-4361&quot;,
+	                	    &quot;workPhone&quot;: &quot;(750) 677-3140&quot;,
+	                	    &quot;birthDate&quot;: &quot;3/5/1958&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Mamie&quot;,
+	                	      &quot;lastName&quot;: &quot;Moss&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;0759&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;229 Tumce Hts&quot;,
+	                	      &quot;city&quot;: &quot;Nuvrelhi&quot;,
+	                	      &quot;state&quot;: &quot;Alabama&quot;,
+	                	      &quot;zip&quot;: &quot;57030&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(931) 724-3914&quot;,
+	                	    &quot;workPhone&quot;: &quot;(933) 828-7621&quot;,
+	                	    &quot;birthDate&quot;: &quot;5/2/1967&quot;
+	                	  },
+	                	  {
+	                	    &quot;name&quot;: {
+	                	      &quot;firstName&quot;: &quot;Birdie&quot;,
+	                	      &quot;lastName&quot;: &quot;Andrews&quot;
+	                	    },
+	                	    &quot;ssn&quot;: &quot;7800&quot;,
+	                	    &quot;address&quot;: {
+	                	      &quot;street&quot;: &quot;409 Sorofo Loop&quot;,
+	                	      &quot;city&quot;: &quot;Fezezti&quot;,
+	                	      &quot;state&quot;: &quot;West Virginia&quot;,
+	                	      &quot;zip&quot;: &quot;10565&quot;
+	                	    },
+	                	    &quot;primaryPhone&quot;: &quot;(868) 974-1029&quot;,
+	                	    &quot;workPhone&quot;: &quot;(650) 473-1534&quot;,
+	                	    &quot;birthDate&quot;: &quot;12/31/1971&quot;
+	                	  }
+	                	];
+	 
+    var currentPatient = null;
+    var currentIndex = 0;
+    var setCurrentPatient = function (patient){
+    	currentPatient = patient;
+    	currentIndex = patients.indexOf(patient);
+    }
+    
+    var getCurrentPatient = function (){
+    	return currentPatient;
+    }
+    
+    var updateCurrentPatient = function (updatedPatient){
+    	patients[currentIndex] = updatedPatient;
+    }
+    
+    var showMore = function (patient){
+    	patient.showButton = !patient.showButton;
+    }
+    
+    var getPatients = function (){
+    	return patients;
+    }
+    
+    var toHomePage = function (patient){
+    	$location.url(&apos;/home&apos;);
+    }
+    
+    var toDetailPage = function (patient){
+    	currentPatient = patient;
+    	currentIndex = patients.indexOf(patient);
+    	$location.url(&apos;/detail&apos;);
+    }
+    
+    return {
+    	setCurrentPatient: setCurrentPatient,
+        getCurrentPatient: getCurrentPatient,
+        showMore : showMore,
+        getPatients : getPatients,
+        toHomePage : toHomePage,
+        updateCurrentPatient : updateCurrentPatient,
+        toDetailPage : toDetailPage
+    }
+});
+           </code> </pre>
+
+            <p>Here is the sinppet of home.html file:</p>
+            <pre><code>
+            &lt;tr ng-show=&quot;patient.showButton&quot;&gt;
+                &lt;th&gt;Street&lt;/th&gt;
+                &lt;th&gt;City&lt;/th&gt;
+                &lt;th&gt;State&lt;/th&gt;
+                &lt;th&gt;Zip&lt;/th&gt;
+                &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+                &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+                &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr ng-show=&quot;patient.showButton&quot; &gt;
+            &lt;td&gt;{{patient.address.street}}&lt;/td&gt;
+            &lt;td&gt;{{patient.address.city}}&lt;/td&gt;
+            &lt;td&gt;{{patient.address.state}}&lt;/td&gt;
+            &lt;td&gt;{{patient.address.zip}}&lt;/td&gt;
+            &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+            &lt;th&gt;&amp;nbsp;&lt;/th&gt;
+            &lt;th&gt;&amp;nbsp;&lt;/th&gt;  
+             </code></pre>
+
+        </div>
+
+        <div class="page_content">
+            <h2>Experiment Details:</h2>
+            <span class="tags">Please click the button to view experiment detail:</span> 
+            <a class="btn btn-default" role="button" href="http://finalproj-yueliu2366.rhcloud.com/#/home"><span class="fa fa-list pull-right"></span> Click Me  </a>
+        </div>
+
+        <div class="page_content">
+            <a name="source_code"></a>
+            <h2>Source Code Links:</h2>
+            <li>
+                <a href="../../fileview/Default.aspx?~/experiments/week10/service.js">service.js</a>
+            </li>
+            <li>
+                <a href="../../fileview/Default.aspx?~/experiments/week10/home.html">home.html</a>
+            </li>
+        </div>
+
+    </div>
+
+
+
+
+</body>
+</html>

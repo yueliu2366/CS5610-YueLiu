@@ -5,6 +5,10 @@
 ../story/index.htm?../experiments/week04/story.txt                           WEEK04: AngularJs
 ../story/index.htm?../experiments/week05/story.txt                           WEEK05: AngularJsRouting, SinglePage, Service
 ../story/index.htm?../experiments/week06/story.txt                           WEEK06: Explore Nodejs && Deploy on OpenShift
+../story/index.htm?../experiments/week07/story.txt                           WEEK07: Explore MongoDB && Deploy on OpenShift
+../story/index.htm?../experiments/week08/story.txt                           WEEK08(Spring Break): More JQuery
+../story/index.htm?../experiments/week09/story.txt                           WEEK09(Proj Experiments): Passport Access Control 
+../story/index.htm?../experiments/week10/story.txt                           WEEK10(Proj Experiments): Profile experiments 
 
 
 

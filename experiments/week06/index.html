@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
 
-    <title>Sticky Footer Navbar Template for Bootstrap</title>
+    <title>Hello World Angular Application</title>
 
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="js/angular.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -29,7 +30,7 @@
 
 </head>
 
-<body>
+<body ng-app="MoviesApp">
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -49,35 +50,26 @@
 
         <div class="page_content">
             <h2>Experiment Description:</h2>
-            <p>This is my first try out of nodejs. It requires express module. I created a folder called static at the root folder
-            and built two static html files under the folder. By definding <code>app.use(express.static(__dirname + '/static'))</code>,we
-            can hit the two websites under static folder by <code>url: localhost:3000/index.html and url: localhost:3000/hello.html  </code></p>
-            <p>Here is the sinppet of JS file:</p>
+            <p>
+               In this experiment, I try out visiting static page on OpenShift.
+            </p>
+            <p>Here is the sinppet of html file:</p>
             <pre><code>
-var express = require(&apos;express&apos;)
-var app = express()
-app.use(express.static(__dirname + &apos;/static&apos;));
-            </code></pre>
-        </div>
+&lt;div class=&quot;page_content&quot;&gt;
+&lt;h2&gt;Experiment Details:&lt;/h2&gt;
+&lt;div class=&quot;container&quot;&gt;
+&lt;h1&gt;hello from index.html&lt;/h1&gt;                
+&lt;/div&gt;
+&lt;/div&gt;
+      </code></pre>
+</div>
 
         <div class="page_content">
             <h2>Experiment Details:</h2>
-        </div>
-
-        <div class="page_content">
-            <a name="source_code"></a>
-            <h2>Source Code Links:</h2>
-            <ul>
-                <li>
-                    <a href="../../fileview/Default.aspx?~/experiments/week06/static.js">static.js</a>
-                </li>
-                <li>
-                    <a href="../../fileview/Default.aspx?~/experiments/week06/static/index.html">index.html</a>
-                </li>
-                <li>
-                    <a href="../../fileview/Default.aspx?~/experiments/week06/static/hello.html">hello.html</a>
-                </li>
-            </ul>
+            <div class="container">
+                <h1>hello from index.html</h1>
+                
+            </div>
         </div>
 
     </div>
@@ -87,3 +79,19 @@ app.use(express.static(__dirname + &apos;/static&apos;));
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

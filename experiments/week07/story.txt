@@ -1,0 +1,11 @@
+﻿../../story/whatisnext.htm?../experiments/week07/story.txt               What is Next?
+http://nodejs-yueliu2366.rhcloud.com/020.html	  OpenShift-MongoDB Retrieve data 
+http://nodejs-yueliu2366.rhcloud.com/021.html	   OpenShift-MongoDB Delete data 
+http://nodejs-yueliu2366.rhcloud.com/022.html       OpenShift-MongoDB Add data
+http://nodejs-yueliu2366.rhcloud.com/023.html       OpenShift-MongoDB Update data
+http://nodejs-yueliu2366.rhcloud.com/024.html       OpenShift-MongoDB Ajax 
+
+
+
+
+
