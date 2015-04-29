@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="views/login/login.css">
+    <link rel="stylesheet" href="views/profile/profile.css">
+    <link rel="stylesheet" href="views/favorite/favorite.css">  
+    <link rel="stylesheet" href="views/follow/follow.css">
+    <link rel="stylesheet" href="views/landing/css/styles.css"> 
+    <link rel="stylesheet" href="views/booklist/css/shop-homepage.css">
+    <link rel="stylesheet" href="views/bookitem/css/shop-item.css">
+    <link rel="stylesheet" href="views/selected_profile/selected_profile.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-resource.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="views/register/register.js"></script>
+    <script src="views/login/login.js"></script>
+    <script src="views/follow/follow.js"></script>
+    <script src="views/profile/profile.js"></script>
+    <script src="views/favorite/favorite.js"></script>
+    <script src="views/selected_profile/selected_profile.js"></script>
+    <script src="views/landing/js/landing.js"></script>
+    <script src="views/booklist/js/booklist.js"></script>
+    <script src="views/bookitem/js/bookitem.js"></script>
+    <script src="views/nav/nav.js"></script>
+    <script src="js/service.js"></script>
+  </head>
+
+<body ng-app="BookStoreApp">
+  <nav class="navbar navbar-inverse navbar-fixed-top" ng-controller="NavCtrl">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Book Store</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li ><a href="#landing">Home</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-show="!currentUser"><a href="#login">Sign in</a></li>
+            <li ng-show="!currentUser"><a href="#register">Sign up</a></li>
+            <li ng-show="currentUser" class="dropdown">
+	          <a class="dropdown-toggle" data-toggle="dropdown">Welcome, {{currentUser.username}} ! <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#/profile">Profile</a></li>
+	            <li><a href="#favorite">Favorite</a></li>
+	            <li class="divider"></li>
+	            <li><a href="#" ng-click="logout()">Logout</a></li>
+	          </ul>
+	        </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+  
+     <div class="page_content">
+     <div ng-view></div>
+      </div>
+    
+    <footer>
+ 		<span class="text-muted"> Copyright © Yue Liu 2015 </span>
+    </footer>
+   
+ </body>
+</html>

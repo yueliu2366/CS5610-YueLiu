@@ -1,0 +1,99 @@
+﻿
+<div class="container" id="myDetail">
+   <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >   
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">{{currentUser.firstname}} {{currentUser.lastname}}'s Profile</h3>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-4 col-lg-4 " align="center"> 
+                <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
+                <button  ng-click="toFollowerPage()" class="btn btn-info btn-block"><span class="fa fa-user"></span> Follower: {{currentUser.follower.length}}</button>
+                <button ng-click="toFollowingPage()" class="btn btn-success btn-block"><span class="fa fa-user"></span> Following: {{currentUser.following.length}}</button>
+                 </div>
+                
+        
+                <div class=" col-md-8 col-lg-8 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td>Username:</td>
+                        <td>{{currentUser.username}}</td>
+                      </tr>
+                       <tr>
+                        <td>Lastname:</td>
+                        <td>{{currentUser.lastname}}</td>
+                      </tr>
+                      <tr>
+                        <td>Firstname:</td>
+                        <td>{{currentUser.firstname}}</td>
+                      </tr>
+                      <tr>
+                        <td>Email:</td>
+                        <td>{{currentUser.email}}</td>
+                      </tr>                     
+                    </tbody>
+                  </table>
+                 
+                </div>
+              </div>
+            </div>
+                 <div class="panel-footer">
+                        <a id="btnMail"  data-content="Send Email" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
+                            <a id="btnEdit" data-content="Edit"  data-toggle="modal" data-target="#myModal" type="button" class="btn btn-sm btn-warning" ><i class="glyphicon glyphicon-edit"></i></a>
+                            <a id="btnHome" data-content="Go to Favorite Books Page" ng-click="toFavoritePage()" type="button" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-heart"></i></a>
+                        </span>
+                 </div>
+            
+          </div>
+        </div>
+      </div>
+      
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title" id="myModalLabel">Editing {{currentUser.firstname}} {{currentUser.lastname}}'s profile</h4>
+                </div>
+                <div class="modal-body">
+                    <center>
+                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                    <h3 class="media-heading">{{currentUser.firstname}}  {{currentUser.lastname}} <small>USA</small></h3>
+                    </center>
+                    <hr>
+                    <center>
+                    <p class="text-left"><strong>Profile: </strong>
+                    
+                    
+                  <table class="table table-user-information">
+                    <tbody>
+                       <tr>
+                        <td>Lastname:</td>
+                        <td><input ng-model="currentUser.lastname" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>Firstname:</td>
+                        <td><input ng-model="currentUser.firstname" class="form-control" /></td>
+                      </tr>
+                      <tr>
+                        <td>Email:</td>
+                        <td><input ng-model="currentUser.email" class="form-control" /></td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div> 
+                    </center>
+                <div class="modal-footer">
+                    <center>
+                    <button id="btnSave" data-content="Save profile" ng-click="saveProfile()" type="button" class="btn btn-primary" data-dismiss="modal">Save and return</button>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>

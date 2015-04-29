@@ -1,0 +1,32 @@
+
+<div id="myFavo" class="container">
+    <div class="row   custyle">
+    <div class="col-md-12"> 
+    <table class="table table-striped custab">
+    <thead>
+        <tr>
+            <th>Title</th>
+			<th>Author</th>
+            <th>Description</th>
+            <th>&nbsp</th>
+            <th>Poster</th>
+            
+              <th>&nbsp</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+            <tr ng-repeat="book in books">
+                <td>{{book.title}}</td>
+                <td>{{book.author}}</td>
+                <td> <img class="poster" ng-src="{{book.imgUrl}}"  width="80"/><td>
+                <td>{{book.description}}</td>
+                <td ><a ng-click="toBookItemPage(book)" title="view more about the book" class='btn btn-info btn-xs'><span class="glyphicon glyphicon-edit"></span>View More</a></td>
+                <td> <a ng-click="removeFromFavorite(book)"  title="Remove this book from the list" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Remove</a></td>
+            </tr>
+    </tbody>       
+    </table>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+
+<a id="top"></a>
+    <!-- Page Content -->
+    <div class="container">
+       
+        <div class="row">
+
+            <div class="col-md-2">    
+            </div>
+
+            <div class="col-md-8">
+	            <div class="row">
+	            <div class="col-md-4"> </div>
+	            <div class="col-md-6">
+	                <h1>&nbsp;</h1>
+	             </div>
+	             <div class="col-md-2"> </div>
+	            </div>
+
+                <div class="thumbnail">
+                    <div class="row">
+                      <div class="col-md-3">
+                       <img class="img-responsive" src="{{currentBook.volumeInfo.imageLinks.thumbnail}} " alt="">
+                      </div>
+                      <div class="col-md-6">
+                      <p ng-show="currentBook.volumeInfo.title"><strong>Title : </strong> {{currentBook.volumeInfo.title}}</p>
+                      <p ng-show="currentBook.volumeInfo.authors[0]"><strong>Author : </strong> {{currentBook.volumeInfo.authors[0]}}</p>
+                      <p ng-show="currentBook.volumeInfo.publisher"><strong>Publisher : </strong> {{currentBook.volumeInfo.publisher}}</p>
+                      <p ng-show="currentBook.volumeInfo.publishedDate"><strong>PublishedDate : </strong> {{currentBook.volumeInfo.publishedDate}}</p>
+                      <p ng-show="currentBook.volumeInfo.categories[0]"><strong>Categories : </strong> {{currentBook.volumeInfo.categories[0]}}</p>
+                      </div>
+                     
+                     <div class="col-md-2">
+                     </div>
+                     
+                      <div class="col-md-1">
+                      <button title="Add to my favorate list" ng-show="!currentBook.favorButton" ng-click="addToFavorites()" class="btn btn-primary">
+                                <span  class="glyphicon glyphicon-heart"></span>
+                       </button>
+                       <button title="Remove from my favorate list" ng-show="currentBook.favorButton" ng-click="deleteFromFavorites()" class="btn btn-danger">
+                                <span  class="glyphicon  glyphicon-remove"></span>
+                       </button>
+                      </div>
+                    
+                    </div>
+                    <div class="caption-full">
+                        <p ><strong>Description: </strong>{{currentBook.volumeInfo.description}}</p>
+                    </div>
+                    <div class="ratings">
+                        <p class="pull-right">{{comments.length}} reviews</p>
+                        <p>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            4.0 stars
+                        </p>
+                    </div>
+                </div>
+ 
+             <div class="well">
+             <p><strong>Reviews:</strong></p>
+                    <hr>
+                  <div class="row" ng-repeat="comment in comments" >
+                      <div class="col-md-12">
+                            <a ng-click="viewProfileForSelectedUser(comment)">{{comment.username}}</a>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                            <span class="pull-right">{{comment.date}}</span>
+                            <p>{{comment.content}}</p>
+                              <hr/>
+                        </div>
+                      
+                  </div>
+                  
+                    <div id="flip"><a class="btn btn-success">Leave a Review</a></div>
+                   <div id="panel">
+                      <textarea ng-model="comment.text" class="form-control" rows="3"></textarea>
+                      <br>
+                       <div class="text-right">
+                        <a class="btn btn-success" ng-click="submitComment()" >Submit</a>
+                    </div>
+                   </div>
+                    
+                   
+
+                </div>
+ 
+ 
+ 
+
+            </div>
+            
+            <div class="col-md-2">    
+            </div>
+  	
+				
+        </div>
+
+    </div>
+    <!-- /.container -->
+	
